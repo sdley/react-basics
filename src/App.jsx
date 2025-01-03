@@ -1,16 +1,20 @@
-import Counter from "./components/Counter"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./layouts/Layout"
+import Home from "./pages/Home";
+import CreateArticle from "./pages/CreateArticle";
+
 
 function App() {
   
   return (
-    <>
-      <div>
-        <h1 className="text-3xl font-bold text-red-500">App</h1>
-        <Counter name="Counter A"/>
-        <Counter name="Counter B"/>
-      </div>
-      
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="create" element={<CreateArticle />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
